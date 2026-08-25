@@ -12,31 +12,9 @@ Physical Hardware:     Cisco Catalyst 2960G Switch, HP Stream 11 (Parrot OS / SS
 ## 🌐 VMware Workstation Virtual Network Topology
 ​To simulate an enterprise environment while strictly containing attack traffic, the internal virtual network is split across two distinct virtual software switches:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-│WINDOWS 11 HOST SYSTEM (Bare-Metal Engine)                                                                    │
-│                                                                                                              │
-│   ┌──────────────────────────────────────────────────────────────────────────────────────┐   │
-│   │ VMWARE WORKSTATION PRO HYPERVISOR                                                                   │    │
-│   │                                                                                                     │    │
-│   │    NAT Subnet  ─── (Outbound Internet Updates Only)                                                 │    │
-│   │            │                                                                                        │    │
-│   │    Corporate LAN: Host-Only Isolated Network  ──────────────────────────────────────────┐    │    │
-│   │            │                                                                                   │    │    │
-│   │  ┌───────┴────────────┐ ┌─────────────────┐   ┌────────────────┐   ┌──────────────┴─┐  │    │
-│   │  │ Windows Server 2019    │ │ Kali Linux Node    │   │ Windows Target    │   │ Wazuh SIEM Server │ │    │
-│   │  │ (AD Domain Controller) │ │ (Offensive/Triage) │   │ (Audited Machine) │   │ (Log Ingestion)   │ │    │
-│   │  └────────────────────┘ └─────────────────┘   └────────────────┘   └────────────────┘  │    │
-│   └──────────────────────────────────────────────────────────────────────────────────────┘    │
-└──────────────────────────────────────────────────────────────────────────────────────────────┘
-                                     │
-                Physical Ethernet / PuTTY Console 
-                                     │
-                      ┌────────────┴───────────┐
-                      │ HP Stream 11               │
-                      │ (Parrot OS via SSH)        │
-                      └────────────────────────┘
-```
+<p align="center">
+  <img src="home_lab_topology.png" alt="Home Lab Network Topology" width="100%">
+</p>
 
 ## 📝 Lab Architecture & Design Rationale
 
